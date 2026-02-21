@@ -1,0 +1,17 @@
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\adapters\in\controller\CorridaController.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\adapters\out\persistence\CorridaJpaAdapter.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\application\service\SolicitarCorridaService.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Corrida.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Endereco.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Enuns.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Idoso.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Motorista.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Pagamento.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Usuario.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\domain\model\Veiculo.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\infrastructure\config\BeanConfiguration.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\infrastructure\repository\CorridaJpaRepository.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\ports\in\SolicitarCorridaUseCase.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\ports\out\CorridaRepositoryPort.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\com\idoso\uber\UberIdosoApplication.java
+C:\Users\gradi\eclipse-workspace\transenior\src\main\java\transenior\Main.java

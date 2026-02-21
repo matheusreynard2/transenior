@@ -1,0 +1,9 @@
+{
+  "java.project.sourcePaths": [
+    "."
+  ],
+  "java.project.resourcePaths": [
+    "../resources"
+  ],
+  "java.project.outputPath": "../target/classes"
+}
