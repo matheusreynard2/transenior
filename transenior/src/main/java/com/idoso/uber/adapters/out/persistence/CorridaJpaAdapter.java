@@ -3,6 +3,7 @@ package com.idoso.uber.adapters.out.persistence;
 import java.util.List;
 
 import com.idoso.uber.domain.model.Corrida;
+import com.idoso.uber.domain.model.Enuns;
 import com.idoso.uber.infrastructure.repository.CorridaJpaRepository;
 import com.idoso.uber.ports.out.CorridaRepositoryPort;
 
@@ -22,6 +23,11 @@ public class CorridaJpaAdapter implements CorridaRepositoryPort {
     @Override
     public List<Corrida> getTodasCorridas() {
         return repository.findAllWithEnderecosAndPessoas();
+    }
+
+    @Override
+    public List<Corrida> getCorridasFinalizadas() {
+        return repository.findByStatusCorridaWithPessoasAndEnderecos(Enuns.StatusCorrida.FINALIZADA);
     }
 
     @Override

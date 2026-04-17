@@ -14,6 +14,9 @@ public interface CorridaUseCase {
 
     List<Corrida> getTodasCorridas();
 
+    /** Corridas com status FINALIZADA (para a página "Corridas finalizadas"). */
+    List<Corrida> getCorridasFinalizadas();
+
     Corrida getCorrida(Long id);
 
     void deletarCorrida(Long id);

@@ -12,6 +12,9 @@ public interface IdosoUseCase {
 
     List<Idoso> listar();
 
+    /** Idosos que ainda não têm corrida finalizada (para preencher o combobox na página de relacionamento). */
+    List<Idoso> listarDisponiveisParaRelacionamento();
+
     ResponseEntity<Void> deletar(Long id);
 
     ResponseEntity<Void> deletarEmLote(IdsRequestDTO request);

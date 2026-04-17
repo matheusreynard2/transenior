@@ -1,7 +1,7 @@
 package com.idoso.uber.domain.model;
 
 import java.time.LocalDate;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Usuario {

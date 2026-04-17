@@ -14,6 +14,9 @@ public interface CorridaRepositoryPort {
 
     List<Corrida> getTodasCorridas();
 
+    /** Corridas já finalizadas, com motorista, idoso e endereços. */
+    List<Corrida> getCorridasFinalizadas();
+
     void deleteById(Long id);
 
     void flush();

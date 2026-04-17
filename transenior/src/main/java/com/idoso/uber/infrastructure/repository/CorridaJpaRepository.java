@@ -1,8 +1,10 @@
 package com.idoso.uber.infrastructure.repository;
 
 import com.idoso.uber.domain.model.Corrida;
+import com.idoso.uber.domain.model.Enuns;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
@@ -33,4 +35,9 @@ public interface CorridaJpaRepository extends JpaRepository<Corrida, Long> {
            "LEFT JOIN FETCH c.origem LEFT JOIN FETCH c.destino " +
            "LEFT JOIN FETCH c.motorista LEFT JOIN FETCH c.idoso")
     List<Corrida> findAllWithEnderecosAndPessoas();
+
+    /** Corridas com status FINALIZADA, com motorista, idoso e endereços carregados, ordenadas por data/hora fim (mais recente primeiro). */
+    @EntityGraph(attributePaths = {"motorista", "idoso", "origem", "destino"})
+    @Query("SELECT c FROM Corrida c WHERE c.statusCorrida = :status ORDER BY c.dataHoraFim DESC")
+    List<Corrida> findByStatusCorridaWithPessoasAndEnderecos(@Param("status") Enuns.StatusCorrida status);
 }

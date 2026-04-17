@@ -36,6 +36,12 @@ public class IdosoController {
         return idosoUseCase.listar();
     }
 
+    /** Idosos disponíveis para novo relacionamento (exclui quem já tem corrida finalizada). Use no combobox da página de relacionamento. */
+    @GetMapping("/disponiveis-para-relacionamento")
+    public List<Idoso> listarDisponiveisParaRelacionamento() {
+        return idosoUseCase.listarDisponiveisParaRelacionamento();
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         return idosoUseCase.deletar(id);

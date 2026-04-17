@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corridas finalizadas</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; margin: 1rem; background: #f5f5f5; }
+        h1 { color: #333; }
+        .erro { color: #c00; padding: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 0.5rem 0.75rem; text-align: left; }
+        th { background: #2c3e50; color: #fff; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .info-corrida { font-size: 0.9rem; }
+        .motorista, .idoso { margin: 0.25rem 0; padding: 0.25rem; background: #ecf0f1; border-radius: 4px; }
+        .vazio { padding: 1rem; color: #666; }
+    </style>
+</head>
+<body>
+    <h1>Corridas finalizadas</h1>
+    <p>Corridas já concluídas, com motorista, idoso e dados da corrida.</p>
+    <div id="erro" class="erro" style="display: none;"></div>
+    <div id="conteudo"></div>
+
+    <script>
+        (function () {
+            var erroEl = document.getElementById('erro');
+            var conteudoEl = document.getElementById('conteudo');
+
+            function mostrarErro(msg) {
+                erroEl.textContent = msg;
+                erroEl.style.display = 'block';
+                conteudoEl.innerHTML = '';
+            }
+
+            function formatarData(d) {
+                if (!d) return '-';
+                try {
+                    var dt = new Date(d);
+                    return isNaN(dt.getTime()) ? d : dt.toLocaleString('pt-BR');
+                } catch (e) { return d; }
+            }
+
+            function enderecoTexto(end) {
+                if (!end) return '-';
+                var p = [end.logradouro, end.numero, end.cidade, end.estado].filter(Boolean);
+                return p.length ? p.join(', ') : '-';
+            }
+
+            function pessoaTexto(p, tipo) {
+                if (!p) return '-';
+                var nome = p.nome || '-';
+                var id = p.id != null ? ' (ID ' + p.id + ')' : '';
+                return tipo + ': ' + nome + id;
+            }
+
+            fetch('/v1/corridas/finalizadas')
+                .then(function (r) {
+                    if (!r.ok) throw new Error('Erro ao carregar: ' + r.status);
+                    return r.json();
+                })
+                .then(function (lista) {
+                    erroEl.style.display = 'none';
+                    if (!lista || lista.length === 0) {
+                        conteudoEl.innerHTML = '<p class="vazio">Nenhuma corrida finalizada.</p>';
+                        return;
+                    }
+                    var html = '<table><thead><tr>' +
+                        '<th>ID</th><th>Status</th><th>Motorista</th><th>Idoso</th>' +
+                        '<th>Origem</th><th>Destino</th>' +
+                        '<th>Solicitação</th><th>Início</th><th>Fim</th>' +
+                        '<th>Valor</th></tr></thead><tbody>';
+                    lista.forEach(function (c) {
+                        html += '<tr><td>' + (c.id != null ? c.id : '-') + '</td>' +
+                            '<td>' + (c.statusCorrida || '-') + '</td>' +
+                            '<td class="motorista">' + pessoaTexto(c.motorista, 'Motorista') + '</td>' +
+                            '<td class="idoso">' + pessoaTexto(c.idoso, 'Idoso') + '</td>' +
+                            '<td class="info-corrida">' + enderecoTexto(c.origem) + '</td>' +
+                            '<td class="info-corrida">' + enderecoTexto(c.destino) + '</td>' +
+                            '<td>' + formatarData(c.dataHoraSolicitacao) + '</td>' +
+                            '<td>' + formatarData(c.dataHoraInicio) + '</td>' +
+                            '<td>' + formatarData(c.dataHoraFim) + '</td>' +
+                            '<td>' + (c.valorCorrida != null ? 'R$ ' + Number(c.valorCorrida).toFixed(2) : '-') + '</td></tr>';
+                    });
+                    html += '</tbody></table>';
+                    conteudoEl.innerHTML = html;
+                })
+                .catch(function (e) {
+                    mostrarErro('Não foi possível carregar as corridas finalizadas. Verifique se a API está rodando (ex.: porta 8080). ' + e.message);
+                });
+        })();
+    </script>
+</body>
+</html>

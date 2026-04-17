@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "react-app",
+			"path": "../../../../../../../react-app"
+		},
+		{
+			"name": "transenior",
+			"path": "../../../../../.."
+		}
+	],
+	"settings": {}
+}

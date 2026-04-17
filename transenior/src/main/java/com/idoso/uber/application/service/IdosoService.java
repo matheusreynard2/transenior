@@ -65,6 +65,11 @@ public class IdosoService implements IdosoUseCase {
     }
 
     @Override
+    public List<Idoso> listarDisponiveisParaRelacionamento() {
+        return repository.findByIdososSemCorridaComStatus(Enuns.StatusCorrida.FINALIZADA);
+    }
+
+    @Override
     public ResponseEntity<Void> deletar(Long id) {
         return dadosSistemaService.deletarIdosoPorId(id);
     }

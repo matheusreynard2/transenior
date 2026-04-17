@@ -37,6 +37,12 @@ public class CorridaController {
         return corridaUseCase.getTodasCorridas();
     }
 
+    /** Corridas finalizadas (para a página "Corridas finalizadas"). Retorna corrida com motorista, idoso e endereços. */
+    @GetMapping("/finalizadas")
+    public List<Corrida> getCorridasFinalizadas() {
+        return corridaUseCase.getCorridasFinalizadas();
+    }
+
     @GetMapping("/consultarCorrida/{id}")
     public Corrida getCorrida(@PathVariable Long id) {
         return corridaUseCase.getCorrida(id);

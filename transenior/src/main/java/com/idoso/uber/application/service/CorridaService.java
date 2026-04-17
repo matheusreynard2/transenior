@@ -91,6 +91,11 @@ public class CorridaService implements CorridaUseCase {
     }
 
     @Override
+    public List<Corrida> getCorridasFinalizadas() {
+        return this.repository.getCorridasFinalizadas();
+    }
+
+    @Override
     public Corrida getCorrida(Long id) {
         return this.repository.findById(id);
     }
