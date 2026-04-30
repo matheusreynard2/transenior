@@ -53,6 +53,8 @@ public class RotaExternalService {
     /**
      * Geocodifica um endereço via Nominatim. Retorna [lat, lon] ou null.
      */
+    
+    @SuppressWarnings("rawtypes")
     public double[] geocodificar(String endereco) {
         if (endereco == null || endereco.isBlank()) return null;
         String url = UriComponentsBuilder.fromHttpUrl(NOMINATIM_BASE)

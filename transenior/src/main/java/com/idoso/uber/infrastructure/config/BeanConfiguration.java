@@ -6,7 +6,6 @@ import com.idoso.uber.application.service.DadosSistemaService;
 import com.idoso.uber.application.service.HistoricoService;
 import com.idoso.uber.application.service.RelacionamentoMotoristaIdosoService;
 import com.idoso.uber.infrastructure.repository.CorridaJpaRepository;
-import com.idoso.uber.infrastructure.repository.EnderecoJpaRepository;
 import com.idoso.uber.infrastructure.repository.IdosoJpaRepository;
 import com.idoso.uber.infrastructure.repository.MotoristaJpaRepository;
 import com.idoso.uber.infrastructure.repository.RelacionamentoMotoristaIdosoRepository;

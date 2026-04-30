@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "transenior",
+			"path": "."
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"git.openRepositoryInParentFolders": "never",
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}

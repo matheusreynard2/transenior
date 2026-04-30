@@ -5,13 +5,17 @@ com\idoso\uber\domain\model\Enuns$StatusCorrida.class
 com\idoso\uber\ports\in\HistoricoUseCase.class
 com\idoso\uber\domain\model\RelacionamentoMotoristaIdoso.class
 com\idoso\uber\adapters\in\controller\CorridaController.class
+com\idoso\uber\application\service\RotaService.class
+com\idoso\uber\ports\in\RotaUseCase.class
 com\idoso\uber\infrastructure\repository\RelacionamentoMotoristaIdosoRepository.class
 com\idoso\uber\domain\model\Motorista.class
 com\idoso\uber\domain\model\Usuario.class
 com\idoso\uber\application\service\DadosSistemaService.class
+com\idoso\uber\infrastructure\config\BeanConfiguration.class
 com\idoso\uber\ports\in\MotoristaUseCase.class
 com\idoso\uber\domain\model\Veiculo.class
 com\idoso\uber\adapters\in\controller\HistoricoController.class
+com\idoso\uber\domain\model\LoginUser.class
 com\idoso\uber\adapters\in\controller\RotaController.class
 com\idoso\uber\domain\model\Endereco.class
 com\idoso\uber\infrastructure\repository\CorridaJpaRepository.class

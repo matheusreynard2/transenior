@@ -1,7 +1,6 @@
 package com.idoso.uber.application.service;
 
 import com.idoso.uber.application.util.VerificarNull;
-import com.idoso.uber.domain.model.Enuns;
 import com.idoso.uber.domain.model.Historico;
 import com.idoso.uber.domain.requests_dtos.IdsRequestDTO;
 import com.idoso.uber.domain.requests_dtos.RegistroHistoricoRequestDTO;
