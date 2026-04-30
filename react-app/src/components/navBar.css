@@ -9,3 +9,81 @@
 .navbar .nav-link:hover {
     color: lightgray;
 }
+
+.nav-link-button {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+.nav-link-button:focus-visible {
+    outline: 1px solid #fff;
+    border-radius: 4px;
+}
+
+.navbar-collapse-public {
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.navbar-nav-public {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.nav-link-button-public {
+    color: #d1d5db;
+    font-size: 0.74rem;
+    padding: 0.25rem 0.34rem;
+    white-space: nowrap;
+}
+
+.nav-link-button-public:hover {
+    color: #f3f4f6;
+}
+
+.navbar-login-wrap {
+    min-width: min(100%, 520px);
+}
+
+.navbar-login-wrap-public {
+    margin-top: 0.3rem;
+}
+
+.navbar-login-fields {
+    width: 100%;
+}
+
+.navbar-login-fields input {
+    min-width: 140px;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav-public {
+        align-items: stretch;
+    }
+
+    .nav-link-button-public {
+        font-size: 0.88rem;
+        text-align: left;
+        padding: 0.35rem 0;
+    }
+
+    .navbar-login-fields {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navbar-login-fields input {
+        min-width: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse-public {
+        display: flex !important;
+        flex-direction: column;
+    }
+}

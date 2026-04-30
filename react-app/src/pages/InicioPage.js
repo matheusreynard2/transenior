@@ -1,53 +1,145 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const paginas = [
     {
+        sectionId: "sec-corridas",
         titulo: "Corridas",
         path: "/listarTodosCorridas",
-        descricao: "Lista todas as corridas do sistema. Permite visualizar idoso, motorista, endereços de origem e destino, status e data. Você pode iniciar uma corrida (abre a rota no mapa), finalizar, cancelar, editar ou excluir corridas, individualmente ou em lote.",
+        descricao: "Central de operação das corridas, com status, horários e ações de gerenciamento em tempo real.",
+        detalhes: [
+            "Mostra a lista completa de corridas com origem, destino, motorista, idoso e estado atual.",
+            "Permite iniciar, finalizar, cancelar e editar corridas com atualização imediata dos dados.",
+            "Suporta exclusão individual e também ações em lote para facilitar manutenção operacional.",
+            "Quando logado, integra com o fluxo de navegação para a rota da corrida em andamento."
+        ],
+        desenho: "desenho-corrida"
     },
     {
+        sectionId: "sec-rota",
         titulo: "Rota da Corrida",
         path: "/rotaCorrida",
-        descricao: "Exibe um mapa com a rota entre dois endereços. Informe o endereço inicial e final para traçar o caminho. É possível iniciar a animação do veículo percorrendo a rota. Ao chegar ao destino, um modal mostra o tempo da corrida e permite finalizá-la. Ao clicar em \"Iniciar\" na página de Corridas, você é levado aqui com a rota já definida e a corrida inicia automaticamente.",
+        descricao: "Visualização de rota no mapa para acompanhar deslocamento entre origem e destino.",
+        detalhes: [
+            "Traça automaticamente o caminho com base nos endereços informados no sistema.",
+            "Apresenta o percurso no mapa para facilitar validação e acompanhamento da viagem.",
+            "Permite iniciar o deslocamento visual e acompanhar a execução da corrida.",
+            "Integra com a etapa de finalização, com tempo percorrido e atualização de status."
+        ],
+        desenho: "desenho-rota"
     },
     {
+        sectionId: "sec-cadastrar-motorista",
         titulo: "Cadastrar Motorista",
         path: "/cadastrarMotorista",
-        descricao: "Formulário para cadastrar um novo motorista no sistema. Inclui dados pessoais (nome, CPF, data de nascimento, telefone, e-mail), CNH, COREN, serviços oferecidos, disponibilidade e endereços de origem e destino de atuação.",
+        descricao: "Formulário completo para registrar motoristas com dados pessoais e profissionais.",
+        detalhes: [
+            "Registra identificação, contato e data de nascimento para cadastro completo do perfil.",
+            "Armazena informações profissionais relevantes para atuação no serviço.",
+            "Permite definir disponibilidade e dados de operação para uso nas corridas.",
+            "Após cadastro, o motorista pode ser relacionado a idosos e participar do fluxo de corridas."
+        ],
+        desenho: "desenho-motorista"
     },
     {
+        sectionId: "sec-cadastrar-idoso",
         titulo: "Cadastrar Idoso",
         path: "/cadastrarIdoso",
-        descricao: "Formulário para cadastrar um novo idoso. Inclui dados pessoais (nome, CPF, data de nascimento, telefone, e-mail), contato de emergência e endereços de origem e destino para as corridas.",
+        descricao: "Cadastro de idosos com dados essenciais para atendimento e deslocamento seguro.",
+        detalhes: [
+            "Coleta dados pessoais, contato principal e informações importantes para atendimento.",
+            "Permite registrar contato de emergência para reforçar segurança durante o uso.",
+            "Define endereços de origem e destino para apoiar criação de corridas futuras.",
+            "Mantém os dados disponíveis para relacionamento com motoristas autorizados."
+        ],
+        desenho: "desenho-idoso"
     },
     {
+        sectionId: "sec-relacionar",
         titulo: "Relacionar Motorista/Idoso",
         path: "/relacionarMotoristaIdoso",
-        descricao: "Define quais motoristas atendem quais idosos. Ao criar um relacionamento, o sistema pode gerar corridas associando esse par. Essas corridas aparecem na lista de Corridas para serem gerenciadas.",
+        descricao: "Módulo que estabelece os vínculos de atendimento entre motoristas e idosos.",
+        detalhes: [
+            "Cria vínculos entre entidades já cadastradas para formar pares válidos de atendimento.",
+            "Define claramente quais combinações podem gerar corridas no sistema.",
+            "Reduz erros operacionais ao restringir solicitações a relacionamentos autorizados.",
+            "Apoia o gerenciamento da base ativa de atendimento com mais controle."
+        ],
+        desenho: "desenho-relacionamento"
     },
     {
+        sectionId: "sec-dados-sistema",
         titulo: "Dados do sistema",
         path: "/listarTodosDados",
-        descricao: "Visualização consolidada de todos os dados cadastrados: motoristas, idosos, endereços e relacionamentos entre motoristas e idosos. Útil para consulta e conferência do conteúdo do sistema.",
+        descricao: "Painel consolidado para consulta ampla de cadastros e relacionamentos do sistema.",
+        detalhes: [
+            "Reúne em uma única visão os cadastros de motoristas, idosos e endereços.",
+            "Exibe relacionamentos ativos para facilitar auditoria e conferência de consistência.",
+            "Ajuda na validação dos dados antes de novas operações ou ajustes.",
+            "Serve como tela de apoio para gestão administrativa e suporte."
+        ],
+        desenho: "desenho-dados"
     },
     {
+        sectionId: "sec-historico",
         titulo: "Histórico",
         path: "/historico",
-        descricao: "Registro das ações realizadas no sistema, como cadastros, atualizações, exclusões e mudanças de status. Permite acompanhar o que foi alterado e quando.",
+        descricao: "Registro cronológico das operações realizadas para rastreabilidade completa.",
+        detalhes: [
+            "Exibe eventos de cadastro, atualização, troca de status e remoção de dados.",
+            "Organiza as ações em sequência temporal para facilitar investigação de ocorrências.",
+            "Aumenta a transparência operacional com rastreabilidade das atividades.",
+            "Apoia auditoria interna e conferência de ações executadas no sistema."
+        ],
+        desenho: "desenho-historico"
     },
 ];
 
-function InicioPage() {
+function DesenhoInformativo({ tipo }) {
     return (
-        <div className="inicio-page">
+        <div className={`desenho-informativo ${tipo}`} aria-hidden="true">
+            <span className="shape shape-1"></span>
+            <span className="shape shape-2"></span>
+            <span className="shape shape-3"></span>
+        </div>
+    );
+}
+
+function InicioPage({ isAuthenticated }) {
+    const location = useLocation();
+
+    useEffect(() => {
+        const sectionId = location.state?.scrollTo;
+        if (!sectionId) return;
+
+        const scroll = () => {
+            if (sectionId === "sec-inicio") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                return;
+            }
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        };
+
+        const timeoutId = window.setTimeout(scroll, 80);
+        return () => window.clearTimeout(timeoutId);
+    }, [location.key, location.state]);
+
+    return (
+        <div className="inicio-page" id="sec-inicio">
             <div className="mb-4">
                 <h1 className="mb-3">Transenior</h1>
                 <p className="lead text-muted">
                     Sistema de gestão de transporte para idosos. Permite cadastrar motoristas e idosos,
                     relacionar quem atende quem, criar e acompanhar corridas e visualizar rotas no mapa.
                 </p>
+                {!isAuthenticated && (
+                    <p className="small text-muted mb-0">
+                        Você está no modo informativo. Use o menu do topo para navegar pelas explicações de cada funcionalidade.
+                    </p>
+                )}
             </div>
 
             <div className="card shadow-sm mb-4">
@@ -67,22 +159,38 @@ function InicioPage() {
             <div className="row g-3">
                 {paginas.map((p) => (
                     <div key={p.path} className="col-12 col-md-6 col-lg-4">
-                        <div className="card h-100 shadow-sm">
+                        <div className="card h-100 shadow-sm info-card-resumo">
                             <div className="card-body">
-                                <h3 className="h6 card-title">
-                                    <Link to={p.path} className="text-decoration-none">
-                                        {p.titulo}
-                                    </Link>
-                                </h3>
+                                {!isAuthenticated && <DesenhoInformativo tipo={p.desenho} />}
+                                <h3 className="h6 card-title">{p.titulo}</h3>
                                 <p className="card-text small text-muted mb-0">{p.descricao}</p>
-                                <Link to={p.path} className="btn btn-sm btn-outline-primary mt-2">
-                                    Acessar
-                                </Link>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
+
+            {!isAuthenticated && (
+                <div className="mt-4">
+                    <h2 className="h5 mb-3">Detalhamento das funcionalidades</h2>
+                    <div className="d-grid gap-3">
+                        {paginas.map((p) => (
+                            <section key={p.sectionId} id={p.sectionId} className="card shadow-sm text-start info-card-detalhe">
+                                <div className="card-body">
+                                    <DesenhoInformativo tipo={p.desenho} />
+                                    <h3 className="h6">{p.titulo}</h3>
+                                    <p className="text-muted small">{p.descricao}</p>
+                                    <ul className="mb-0">
+                                        {p.detalhes.map((detalhe) => (
+                                            <li key={detalhe}>{detalhe}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

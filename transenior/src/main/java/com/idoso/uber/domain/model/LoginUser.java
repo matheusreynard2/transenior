@@ -4,15 +4,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "login_users")
+@SequenceGenerator(name = "login_users_seq", sequenceName = "login_users_seq", allocationSize = 1)
 public class LoginUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "corrida_seq")
     private Long id;
 
     @Column(name = "email", nullable = false)

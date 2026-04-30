@@ -23,6 +23,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+    //FAZER COM PORT NO CORRIDA SERVICE
+    //private final RelacionamentoMotoristaIdosoRepository relacionamentoRepository;
+    //private final MotoristaJpaRepository motoristaRepository;
+    //private final IdosoJpaRepository idosoRepository;
+    //private final EnderecoJpaRepository enderecoRepository;
+    //private final HistoricoService historicoService;
+
 @Service
 public class CorridaService implements CorridaUseCase {
 

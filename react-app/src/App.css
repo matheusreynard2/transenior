@@ -1,22 +1,29 @@
 body {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #0b0d10;
+  color: #e5e7eb;
 }
 
 .app-container {
-  background-color: #fff !important;
+  background: linear-gradient(160deg, #111317 0%, #1a1d22 100%) !important;
   min-height: 100vh;
   padding: 1rem 1.5rem 2rem;
   border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+  border: 1px solid #2a2f36;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.45);
 }
 
 .content {
   flex: 1;
   padding: 20px;
   margin-top: 56px; /* Ajuste baseado na altura da navbar */
-  background-color: #fff;
+  background-color: #13161b;
   min-height: calc(100vh - 56px - 40px);
+  border-radius: 8px;
+}
+
+.content-login {
+  margin-top: 0;
+  min-height: auto;
 }
 
 #root {
@@ -57,6 +64,105 @@ body {
 
 .card {
   padding: 2em;
+  background-color: #171a20 !important;
+  border: 1px solid #2a2f36 !important;
+  color: #e5e7eb;
+}
+
+.card .text-muted {
+  color: #aab0ba !important;
+}
+
+.list-group-item,
+.table,
+.table thead th,
+.table td,
+.table th {
+  background-color: #171a20;
+  color: #e5e7eb;
+  border-color: #2f343c;
+}
+
+.form-control,
+.form-select {
+  background-color: #111317;
+  border: 1px solid #343a43;
+  color: #f3f4f6;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #111317;
+  color: #f3f4f6;
+  border-color: #6b7280;
+  box-shadow: 0 0 0 0.2rem rgba(148, 163, 184, 0.2);
+}
+
+.inicio-page h1,
+.inicio-page h2,
+.inicio-page h3 {
+  color: #f3f4f6;
+}
+
+.info-card-resumo,
+.info-card-detalhe {
+  position: relative;
+  overflow: hidden;
+}
+
+.desenho-informativo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 62px;
+  height: 62px;
+  opacity: 0.55;
+}
+
+.desenho-informativo .shape {
+  position: absolute;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+}
+
+.desenho-informativo .shape-1 {
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 22px;
+  background: linear-gradient(145deg, #4b5563, #1f2937);
+}
+
+.desenho-informativo .shape-2 {
+  width: 26px;
+  height: 26px;
+  top: 28px;
+  left: 0;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #6b7280, #374151);
+}
+
+.desenho-informativo .shape-3 {
+  width: 34px;
+  height: 12px;
+  top: 44px;
+  left: 24px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #9ca3af, #4b5563);
+}
+
+.desenho-corrida .shape-1 { background: linear-gradient(145deg, #6b7280, #374151); }
+.desenho-rota .shape-2 { border-radius: 6px; }
+.desenho-motorista .shape-3 { width: 26px; }
+.desenho-idoso .shape-1 { border-radius: 50%; width: 28px; height: 28px; }
+.desenho-relacionamento .shape-2 { left: 14px; width: 34px; height: 18px; border-radius: 10px; }
+.desenho-dados .shape-1 { width: 34px; height: 20px; top: 10px; }
+.desenho-historico .shape-3 { width: 36px; height: 10px; top: 48px; }
+
+.info-card-detalhe .card-body,
+.info-card-resumo .card-body {
+  padding-right: 76px;
 }
 
 .read-the-docs {
