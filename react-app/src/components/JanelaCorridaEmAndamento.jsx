@@ -99,8 +99,8 @@ function JanelaCorridaEmAndamento() {
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "#fff",
-        border: "1px solid #dee2e6",
+        backgroundColor: "#161b24",
+        border: "1px solid #323949",
         ...(position
             ? { left: position.left, top: position.top }
             : { right: MARGEM, bottom: MARGEM }),
@@ -126,7 +126,7 @@ function JanelaCorridaEmAndamento() {
                 <div className="d-flex align-items-center gap-1" onMouseDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()}>
                     <button
                         type="button"
-                        className="btn btn-sm btn-light text-dark"
+                        className="btn btn-sm btn-light"
                         title="Abrir em tela cheia"
                         onClick={abrirTelaCheia}
                     >
@@ -134,7 +134,7 @@ function JanelaCorridaEmAndamento() {
                     </button>
                     <button
                         type="button"
-                        className="btn btn-sm btn-light text-dark"
+                        className="btn btn-sm btn-light"
                         title={isMinimized ? "Expandir" : "Minimizar"}
                         onClick={() => setMinimized((m) => !m)}
                     >
@@ -142,7 +142,7 @@ function JanelaCorridaEmAndamento() {
                     </button>
                     <button
                         type="button"
-                        className="btn btn-sm btn-light text-dark"
+                        className="btn btn-sm btn-light"
                         title="Fechar (a corrida continua em andamento)"
                         onClick={closeCorridaModal}
                     >

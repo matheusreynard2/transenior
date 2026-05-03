@@ -46,8 +46,8 @@ function LoginPage({ onLoginSuccess }) {
     <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "70vh" }}>
       <div className="card shadow-sm" style={{ maxWidth: "420px", width: "100%" }}>
         <div className="card-body text-start">
-          <h2 className="h4 mb-3 text-center">Login</h2>
-          <p className="text-muted small mb-4 text-center">
+          <h2 className="h4 mb-3 text-center" style={{ color: "#ffffff" }}>Login</h2>
+          <p className="small mb-4 text-center" style={{ color: "#ffffff" }}>
             Acesse o sistema com o e-mail e senha cadastrados no banco de dados.
           </p>
 

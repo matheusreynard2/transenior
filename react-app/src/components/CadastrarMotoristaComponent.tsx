@@ -21,6 +21,8 @@ const servicosDisponiveis = [
     "Tarefas domésticas leves"
 ];  
 
+const LABEL_STYLE = { color: "#ffffff" };
+
 function CadastrarMotoristaComponent() {
     const [nome, setNome] = useState("");
     const [cpf, setCpf] = useState("");
@@ -196,7 +198,7 @@ function CadastrarMotoristaComponent() {
         <div className="container">
             <form className="id_form_cadastrar" onSubmit={handleSubmit} noValidate>
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-                    <h2 className="mb-0">Cadastrar Motorista</h2>
+                    <h2 className="mb-0" style={{ color: "#ffffff" }}>Cadastrar Motorista</h2>
                     <div className="d-flex align-items-center gap-2 flex-wrap">
                         <button
                             type="button"
@@ -218,7 +220,7 @@ function CadastrarMotoristaComponent() {
                 )}
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Nome: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Nome: <span className="text-danger">*</span></label>
                         <input
                             ref={refNome}
                             type="text"
@@ -231,7 +233,7 @@ function CadastrarMotoristaComponent() {
                         {erros.nome && <div className="invalid-feedback">Preencha o nome.</div>}
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">CPF: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>CPF: <span className="text-danger">*</span></label>
                         <input
                             ref={refCpf}
                             type="text"
@@ -247,7 +249,7 @@ function CadastrarMotoristaComponent() {
 
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Data de Nascimento: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Data de Nascimento: <span className="text-danger">*</span></label>
                         <input
                             ref={refDataNascimento}
                             type="date"
@@ -261,7 +263,7 @@ function CadastrarMotoristaComponent() {
                         {erros.dataNascimento && <div className="invalid-feedback">Preencha a data de nascimento.</div>}
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">CNH: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>CNH: <span className="text-danger">*</span></label>
                         <input
                             ref={refCnh}
                             type="text"
@@ -277,7 +279,7 @@ function CadastrarMotoristaComponent() {
 
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Telefone: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Telefone: <span className="text-danger">*</span></label>
                         <input
                             ref={refTelefone}
                             type="text"
@@ -289,7 +291,7 @@ function CadastrarMotoristaComponent() {
                         {erros.telefone && <div className="invalid-feedback">Preencha o telefone.</div>}
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Email: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Email: <span className="text-danger">*</span></label>
                         <input
                             ref={refEmail}
                             type="email"
@@ -304,7 +306,7 @@ function CadastrarMotoristaComponent() {
 
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">COREN:</label>
+                        <label className="form-label" style={LABEL_STYLE}>COREN:</label>
                         <input
                             type="text"
                             className="form-control"
@@ -316,7 +318,7 @@ function CadastrarMotoristaComponent() {
                 </div>
 
                 <div className="mb-3">
-                    <label className="form-label">Serviços:</label>
+                    <label className="form-label" style={LABEL_STYLE}>Serviços:</label>
                     <div className="row g-2">
                         <div className="col-md-8">
                             <select
@@ -366,10 +368,10 @@ function CadastrarMotoristaComponent() {
                 </div>
 
                 <hr className="my-4" />
-                <h5 className="mb-3">Endereço de origem</h5>
+                <h5 className="mb-3" style={{ color: "#ffffff" }}>Endereço de origem</h5>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Logradouro (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Logradouro (origem):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -379,7 +381,7 @@ function CadastrarMotoristaComponent() {
                         />
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Número (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Número (origem):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -391,7 +393,7 @@ function CadastrarMotoristaComponent() {
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Estado (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Estado (origem):</label>
                         <select
                             className="form-select"
                             value={origem.estado}
@@ -405,7 +407,7 @@ function CadastrarMotoristaComponent() {
                         </select>
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Cidade (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Cidade (origem):</label>
                         <select
                             className="form-select"
                             value={origem.cidade}
@@ -420,10 +422,10 @@ function CadastrarMotoristaComponent() {
                     </div>
                 </div>
 
-                <h5 className="mb-3 mt-3">Endereço de destino</h5>
+                <h5 className="mb-3 mt-3" style={{ color: "#ffffff" }}>Endereço de destino</h5>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Logradouro (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Logradouro (destino):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -433,7 +435,7 @@ function CadastrarMotoristaComponent() {
                         />
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Número (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Número (destino):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -445,7 +447,7 @@ function CadastrarMotoristaComponent() {
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Estado (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Estado (destino):</label>
                         <select
                             className="form-select"
                             value={destino.estado}
@@ -459,7 +461,7 @@ function CadastrarMotoristaComponent() {
                         </select>
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Cidade (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Cidade (destino):</label>
                         <select
                             className="form-select"
                             value={destino.cidade}
@@ -486,7 +488,7 @@ function CadastrarMotoristaComponent() {
                                 disabled={loading}
                                 id="motoristaAtivo"
                             />
-                            <label className="form-check-label" htmlFor="motoristaAtivo">
+                            <label className="form-check-label" style={LABEL_STYLE} htmlFor="motoristaAtivo">
                                 Ativo
                             </label>
                         </div>
@@ -501,7 +503,7 @@ function CadastrarMotoristaComponent() {
                                 disabled={loading}
                                 id="motoristaDisponivel"
                             />
-                            <label className="form-check-label" htmlFor="motoristaDisponivel">
+                            <label className="form-check-label" style={LABEL_STYLE} htmlFor="motoristaDisponivel">
                                 Disponível
                             </label>
                         </div>
@@ -516,7 +518,7 @@ function CadastrarMotoristaComponent() {
                                 disabled={loading}
                                 id="motoristaAprovado"
                             />
-                            <label className="form-check-label" htmlFor="motoristaAprovado">
+                            <label className="form-check-label" style={LABEL_STYLE} htmlFor="motoristaAprovado">
                                 Aprovado
                             </label>
                         </div>

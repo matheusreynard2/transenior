@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, Outlet, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import NavBar from "./components/navBar.js";
 import InicioPage from "./pages/InicioPage.js";
 import ListarTodosCorridasPage from "./pages/ListarTodosCorridasPage.js";
@@ -24,12 +24,8 @@ function ProtectedRoute({ isAuthenticated }) {
 }
 
 function AppContent({ isAuthenticated }) {
-  const location = useLocation();
-  const isInicio = location.pathname === "/inicio" || location.pathname === "/";
-
   return (
       <div className="container app-container" style={{marginTop: "80px", marginBottom: "20px"}}>
-          {!isInicio && <h1 style={{textAlign: "center"}}>Bem-vindo</h1>}
           <div className="content">
               <Routes>
                   <Route path="/" element={<Navigate to="/inicio" replace />} />

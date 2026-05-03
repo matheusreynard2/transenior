@@ -20,17 +20,17 @@ function formatDataHora(value) {
 function estiloColunaTipo(tipoAcao) {
     switch (tipoAcao) {
         case "TROCA_STATUS":
-            return { backgroundColor: "#0d6efd", color: "#fff" };
+            return { backgroundColor: "#616b7a", color: "#f0f3f8" };
         case "EXCLUSAO":
-            return { backgroundColor: "#dc3545", color: "#fff" };
+            return { backgroundColor: "#7b6666", color: "#f0f3f8" };
         case "CADASTRO":
-            return { backgroundColor: "#198754", color: "#fff" };
+            return { backgroundColor: "#5f6977", color: "#f0f3f8" };
         case "ATUALIZACAO":
-            return { backgroundColor: "#ffc107", color: "#000" };
+            return { backgroundColor: "#7a7480", color: "#f0f3f8" };
         case "PAUSAR":
-            return { backgroundColor: "#fd7e14", color: "#fff" };
+            return { backgroundColor: "#6f6776", color: "#f0f3f8" };
         case "RETOMAR":
-            return { backgroundColor: "#20c997", color: "#fff" };
+            return { backgroundColor: "#68707d", color: "#f0f3f8" };
         default:
             return {};
     }
@@ -142,8 +142,8 @@ function HistoricoComponent() {
         <div className="historico-page">
             <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
                 <div>
-                    <h2 className="mb-1">Histórico</h2>
-                    <p className="text-muted mb-0 small">Ações realizadas no sistema (cadastros, atualizações, exclusões e trocas de status de corridas).</p>
+                    <h2 className="mb-1" style={{ color: "#ffffff" }}>Histórico</h2>
+                    <p className="mb-0 small" style={{ color: "#ffffff" }}>Ações realizadas no sistema (cadastros, atualizações, exclusões e trocas de status de corridas).</p>
                 </div>
                 <div className="d-flex gap-2 flex-wrap">
                     <button

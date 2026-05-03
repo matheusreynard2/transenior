@@ -174,8 +174,8 @@ function ListarTodosDados() {
 
     return (
         <div className="listar-todos-dados">
-            <h2 className="mb-4">Dados do sistema</h2>
-            <p className="text-muted small mb-3">Exclua motoristas, idosos, relacionamentos ou endereços. Ao excluir um motorista ou idoso, as corridas e relacionamentos vinculados também são removidos. Para excluir endereços, é obrigatório excluir antes as corridas, motoristas e idosos que os utilizam.</p>
+            <h2 className="mb-4" style={{ color: "#ffffff" }}>Dados do sistema</h2>
+            <p className="small mb-3" style={{ color: "#ffffff" }}>Exclua motoristas, idosos, relacionamentos ou endereços. Ao excluir um motorista ou idoso, as corridas e relacionamentos vinculados também são removidos. Para excluir endereços, é obrigatório excluir antes as corridas, motoristas e idosos que os utilizam.</p>
             {erro && <div className="alert alert-warning">{erro}</div>}
             <ul className="nav nav-tabs mb-3">
                 {["motoristas", "idosos", "enderecos", "relacionamentos"].map((id) => (

@@ -5,6 +5,8 @@ import { estados, fetchCidades, enderecoVazio, enderecoParaPayload, EnderecoForm
 
 const CAMPOS_OBRIGATORIOS_IDOSO = ["nome", "cpf", "dataNascimento", "telefone", "email"] as const;
 
+const LABEL_STYLE = { color: "#ffffff" };
+
 function CadastrarIdosoComponent() {
     const [nome, setNome] = useState("");
     const [cpf, setCpf] = useState("");
@@ -136,7 +138,7 @@ function CadastrarIdosoComponent() {
         <div className="container">
             <form className="id_form_cadastrar" onSubmit={handleSubmit} noValidate>
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-                    <h2 className="mb-0">Cadastrar Idoso</h2>
+                    <h2 className="mb-0" style={{ color: "#ffffff" }}>Cadastrar Idoso</h2>
                     <div className="d-flex align-items-center gap-2 flex-wrap">
                         <button
                             type="button"
@@ -158,7 +160,7 @@ function CadastrarIdosoComponent() {
                 )}
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Nome: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Nome: <span className="text-danger">*</span></label>
                         <input
                             ref={refNome}
                             type="text"
@@ -171,7 +173,7 @@ function CadastrarIdosoComponent() {
                         {erros.nome && <div className="invalid-feedback">Preencha o nome.</div>}
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">CPF: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>CPF: <span className="text-danger">*</span></label>
                         <input
                             ref={refCpf}
                             type="text"
@@ -187,7 +189,7 @@ function CadastrarIdosoComponent() {
 
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Data de Nascimento: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Data de Nascimento: <span className="text-danger">*</span></label>
                         <input
                             ref={refDataNascimento}
                             type="date"
@@ -201,7 +203,7 @@ function CadastrarIdosoComponent() {
                         {erros.dataNascimento && <div className="invalid-feedback">Preencha a data de nascimento.</div>}
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Telefone: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Telefone: <span className="text-danger">*</span></label>
                         <input
                             ref={refTelefone}
                             type="text"
@@ -216,7 +218,7 @@ function CadastrarIdosoComponent() {
 
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Email: <span className="text-danger">*</span></label>
+                        <label className="form-label" style={LABEL_STYLE}>Email: <span className="text-danger">*</span></label>
                         <input
                             ref={refEmail}
                             type="email"
@@ -228,7 +230,7 @@ function CadastrarIdosoComponent() {
                         {erros.email && <div className="invalid-feedback">Preencha o e-mail.</div>}
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Contato de Emergência:</label>
+                        <label className="form-label" style={LABEL_STYLE}>Contato de Emergência:</label>
                         <input
                             type="text"
                             className="form-control"
@@ -240,10 +242,10 @@ function CadastrarIdosoComponent() {
                 </div>
 
                 <hr className="my-4" />
-                <h5 className="mb-3">Endereço de origem</h5>
+                <h5 className="mb-3" style={{ color: "#ffffff" }}>Endereço de origem</h5>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Logradouro (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Logradouro (origem):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -253,7 +255,7 @@ function CadastrarIdosoComponent() {
                         />
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Número (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Número (origem):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -265,7 +267,7 @@ function CadastrarIdosoComponent() {
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Estado (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Estado (origem):</label>
                         <select
                             className="form-select"
                             value={origem.estado}
@@ -279,7 +281,7 @@ function CadastrarIdosoComponent() {
                         </select>
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Cidade (origem):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Cidade (origem):</label>
                         <select
                             className="form-select"
                             value={origem.cidade}
@@ -294,10 +296,10 @@ function CadastrarIdosoComponent() {
                     </div>
                 </div>
 
-                <h5 className="mb-3 mt-3">Endereço de destino</h5>
+                <h5 className="mb-3 mt-3" style={{ color: "#ffffff" }}>Endereço de destino</h5>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Logradouro (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Logradouro (destino):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -307,7 +309,7 @@ function CadastrarIdosoComponent() {
                         />
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Número (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Número (destino):</label>
                         <input
                             type="text"
                             className="form-control"
@@ -319,7 +321,7 @@ function CadastrarIdosoComponent() {
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Estado (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Estado (destino):</label>
                         <select
                             className="form-select"
                             value={destino.estado}
@@ -333,7 +335,7 @@ function CadastrarIdosoComponent() {
                         </select>
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Cidade (destino):</label>
+                        <label className="form-label" style={LABEL_STYLE}>Cidade (destino):</label>
                         <select
                             className="form-select"
                             value={destino.cidade}
@@ -359,7 +361,7 @@ function CadastrarIdosoComponent() {
                             disabled={loading}
                             id="idosoAtivo"
                         />
-                        <label className="form-check-label" htmlFor="idosoAtivo">
+                        <label className="form-check-label" style={LABEL_STYLE} htmlFor="idosoAtivo">
                             Ativo
                         </label>
                     </div>

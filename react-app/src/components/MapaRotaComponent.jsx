@@ -12,20 +12,20 @@ import { useCorridaEmAndamento } from "../contexts/CorridaEmAndamentoContext.jsx
 const iconePadrao = (cor) =>
     new L.DivIcon({
         className: "marker-custom",
-        html: `<div style="background:${cor};width:24px;height:24px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.4);"></div>`,
+        html: `<div style="background:${cor};width:24px;height:24px;border-radius:50%;border:2px solid #363d4a;box-shadow:0 1px 3px rgba(0,0,0,0.4);"></div>`,
         iconSize: [24, 24],
         iconAnchor: [12, 12],
     });
 
 const iconeCarro = new L.DivIcon({
     className: "marker-carro",
-    html: `<div style="background:#2563eb;width:28px;height:28px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:14px;">🚗</div>`,
+    html: `<div style="background:#636c79;width:28px;height:28px;border-radius:50%;border:2px solid #363d4a;box-shadow:0 2px 6px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:14px;">🚗</div>`,
     iconSize: [28, 28],
     iconAnchor: [14, 14],
 });
 
-const ICONE_ORIGEM = iconePadrao("#22c55e");
-const ICONE_DESTINO = iconePadrao("#ef4444");
+const ICONE_ORIGEM = iconePadrao("#808998");
+const ICONE_DESTINO = iconePadrao("#9ca5b3");
 
 /** Ajusta o mapa para mostrar todos os pontos (rota + marcadores). */
 function AjustarBounds({ pontos }) {
@@ -389,10 +389,10 @@ export default function MapaRotaComponent({
             >
                 {embedInModal && carregandoD && (
                     <div
-                        className="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center bg-white bg-opacity-90"
+                        className="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center map-loading-overlay"
                         style={{ zIndex: 1000 }}
                     >
-                        <span className="fw-semibold text-primary">Carregando...</span>
+                        <span className="fw-semibold text-light">Carregando...</span>
                     </div>
                 )}
                 <MapContainer
@@ -407,7 +407,7 @@ export default function MapaRotaComponent({
                     />
                     {todosPontos.length > 0 && <AjustarBounds pontos={todosPontos} />}
                     {rotaD && rotaD.length > 0 && (
-                        <Polyline positions={rotaD} pathOptions={{ color: "#3b82f6", weight: 5 }} />
+                        <Polyline positions={rotaD} pathOptions={{ color: "#8d97a6", weight: 5 }} />
                     )}
                     {origemD && <Marker position={origemD} icon={ICONE_ORIGEM} />}
                     {destinoD && <Marker position={destinoD} icon={ICONE_DESTINO} />}

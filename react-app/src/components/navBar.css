@@ -1,13 +1,17 @@
 .navbar {
     padding: 10px;
+    background: linear-gradient(180deg, #12161e 0%, #0f1218 100%) !important;
+    border-bottom: 1px solid #2d3340;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
 }
 
 .navbar .navbar-brand, .navbar .nav-link {
-    color: white;
+    color: #e7ebf2;
+    font-weight: 500;
 }
 
 .navbar .nav-link:hover {
-    color: lightgray;
+    color: #ffffff;
 }
 
 .nav-link-button {
@@ -15,41 +19,31 @@
     border: none;
     padding: 0.5rem 1rem;
     text-align: left;
+    color: #e7ebf2;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    line-height: 1.1;
 }
 
 .nav-link-button:focus-visible {
-    outline: 1px solid #fff;
+    outline: 1px solid #aab2c0;
     border-radius: 4px;
 }
 
-.navbar-collapse-public {
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.navbar-nav-public {
-    width: 100%;
-    justify-content: center;
+.navbar-nav-guest {
     flex-wrap: nowrap;
-}
-
-.nav-link-button-public {
-    color: #d1d5db;
-    font-size: 0.74rem;
-    padding: 0.25rem 0.34rem;
     white-space: nowrap;
+    gap: 0.1rem;
 }
 
-.nav-link-button-public:hover {
-    color: #f3f4f6;
+.navbar-nav-guest .nav-link-button {
+    font-size: 0.74rem;
+    padding: 0.35rem 0.45rem;
+    letter-spacing: 0;
 }
 
 .navbar-login-wrap {
     min-width: min(100%, 520px);
-}
-
-.navbar-login-wrap-public {
-    margin-top: 0.3rem;
 }
 
 .navbar-login-fields {
@@ -61,16 +55,6 @@
 }
 
 @media (max-width: 768px) {
-    .navbar-nav-public {
-        align-items: stretch;
-    }
-
-    .nav-link-button-public {
-        font-size: 0.88rem;
-        text-align: left;
-        padding: 0.35rem 0;
-    }
-
     .navbar-login-fields {
         flex-direction: column;
         align-items: stretch;
@@ -78,12 +62,5 @@
 
     .navbar-login-fields input {
         min-width: 0;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar-collapse-public {
-        display: flex !important;
-        flex-direction: column;
     }
 }

@@ -71,7 +71,7 @@ function RelacionarMotoristaIdosoComponent() {
 
     return (
         <div className="container">
-            <h2 className="mb-4">Relacionar Motorista e Idoso</h2>
+            <h2 className="mb-4" style={{ color: "#ffffff" }}>Relacionar Motorista e Idoso</h2>
             {mensagem && (
                 <div className={`alert ${tipoMensagem === "success" ? "alert-success" : tipoMensagem === "warning" ? "alert-warning" : "alert-danger"}`}>
                     {mensagem}

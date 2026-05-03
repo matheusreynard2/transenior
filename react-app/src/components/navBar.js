@@ -79,8 +79,8 @@ function NavBar({ isAuthenticated, usuarioLogado, onLogout, onLogin }) {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className={`collapse navbar-collapse ${isAuthenticated ? "" : "navbar-collapse-public"}`.trim()} id="navbarNavAltMarkup">
-                    <div className={`navbar-nav ${isAuthenticated ? "" : "navbar-nav-public"}`.trim()}>
+                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div className={`navbar-nav ${isAuthenticated ? "" : "navbar-nav-guest"}`}>
                         {menuItems.map((item) =>
                             isAuthenticated ? (
                                 <Link key={item.path} className="nav-link" to={item.path}>
@@ -90,7 +90,7 @@ function NavBar({ isAuthenticated, usuarioLogado, onLogout, onLogin }) {
                                 <button
                                     key={item.path}
                                     type="button"
-                                    className="nav-link nav-link-button nav-link-button-public"
+                                    className="nav-link nav-link-button"
                                     onClick={() => handleInfoMenuClick(item.sectionId)}
                                 >
                                     {item.label}
@@ -109,7 +109,7 @@ function NavBar({ isAuthenticated, usuarioLogado, onLogout, onLogin }) {
                             </button>
                         </div>
                     ) : (
-                        <form className="ms-auto d-flex flex-column align-items-end navbar-login-wrap navbar-login-wrap-public" onSubmit={handleSubmit}>
+                        <form className="ms-auto d-flex flex-column align-items-end navbar-login-wrap" onSubmit={handleSubmit}>
                             <div className="d-flex gap-2 navbar-login-fields">
                                 <input
                                     type="email"

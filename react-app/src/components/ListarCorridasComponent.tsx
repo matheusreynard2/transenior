@@ -410,10 +410,10 @@ function ListarTodosCorridas() {
     return (
         <>
             <div className="container" style={{marginTop: "80px", marginBottom: "20px"}}>
-                <h2 className="mb-4" style={{textAlign: "center"}}>Lista de Corridas</h2>
+                <h2 className="mb-4" style={{ textAlign: "center", color: "#ffffff" }}>Lista de Corridas</h2>
 
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
-                    <span className="text-muted small">Corridas existentes no banco. Excluídas não voltam ao reabrir a página.</span>
+                    <span className="small" style={{ color: "#ffffff" }}>Corridas existentes no banco. Excluídas não voltam ao reabrir a página.</span>
                     <div className="d-flex gap-2 flex-wrap">
                         <button
                             type="button"

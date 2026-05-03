@@ -18,10 +18,12 @@ function RotaCorridaPage() {
         }
     }, [corridaId, enderecoOrigem, enderecoDestino, ensureCorridaAtiva]);
 
+    const COR_BRANCO = { color: "#ffffff" };
+
     return (
         <div>
-            <h2 className="mb-3 px-2">Rota da corrida</h2>
-            <p className="text-muted px-2 mb-3">
+            <h2 className="mb-3 px-2" style={COR_BRANCO}>Rota da corrida</h2>
+            <p className="px-2 mb-3" style={COR_BRANCO}>
                 Informe o endereço inicial e final para traçar o caminho no mapa. Esta página apenas exibe a rota; para iniciar e finalizar uma corrida, use a lista de corridas e a janela que abre ao clicar em &quot;Iniciar&quot;.
             </p>
             <MapaRotaComponent
